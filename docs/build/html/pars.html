@@ -1,0 +1,1059 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PARS package &mdash; PARS 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="PARS (PfAm bRowSer)" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PARS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">PARS (PfAm bRowSer)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PARS package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.family_architectures">pars.family_architectures module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.hammer_to_object">pars.hammer_to_object module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.hmm_autosearch">pars.hmm_autosearch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.hmm_download">pars.hmm_download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.hmmer_command">pars.hmmer_command module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.hmmer_file">pars.hmmer_file module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.pfam_architecture">pars.pfam_architecture module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.pfam_clan">pars.pfam_clan module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.pfam_family">pars.pfam_family module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.pfam_sequences">pars.pfam_sequences module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.rfam_clan">pars.rfam_clan module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.rfam_family">pars.rfam_family module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.rfamily_seq">pars.rfamily_seq module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.xfam_object">pars.xfam_object module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pars.xfam_to">pars.xfam_to module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PARS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PARS package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pars.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pars-package">
+<h1>PARS package<a class="headerlink" href="#pars-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pars.family_architectures">
+<span id="pars-family-architectures-module"></span><h2>pars.family_architectures module<a class="headerlink" href="#module-pars.family_architectures" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.family_architectures.family_architectures">
+<span class="sig-prename descclassname"><span class="pre">pars.family_architectures.</span></span><span class="sig-name descname"><span class="pre">family_architectures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.family_architectures.family_architectures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get domains architectures for given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – pfam access key</p></li>
+<li><p><strong>clan</strong> (<em>bool</em>) – Is entry a clan?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Result</dt>
+<dd class="field-even"><p>list of PfamArchitecture objects</p>
+</dd>
+<dt class="field-odd">Rettype</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.hammer_to_object">
+<span id="pars-hammer-to-object-module"></span><h2>pars.hammer_to_object module<a class="headerlink" href="#module-pars.hammer_to_object" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hammer_to_object.file_to_object">
+<span class="sig-prename descclassname"><span class="pre">pars.hammer_to_object.</span></span><span class="sig-name descname"><span class="pre">file_to_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hammer_to_object.file_to_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>function which enables to pars HMMER profile file to object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – name or path of HMMER profile file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HMMERProfileFileBuilder object build from file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>HMMERProfileFileBuilder object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hammer_to_object.to_dict">
+<span class="sig-prename descclassname"><span class="pre">pars.hammer_to_object.</span></span><span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hammer_to_object.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to change list to dictionary of emmision (match or insert) -log 0.25 probabilities or transition -log 0.25 probabilities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tab</strong> (<em>list</em>) – list of -log 0.25 probabilities from line of file</p></li>
+<li><p><strong>mode</strong> (<em>int</em>) – 1 for “match_emission” line of file,  2 for “insert_emission” line of file and 3 for “state_transition” line of file as is the order in HMM block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary of emmision -log 0.25 probabilities and transition -log 0.25 probabilities</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.hmm_autosearch">
+<span id="pars-hmm-autosearch-module"></span><h2>pars.hmm_autosearch module<a class="headerlink" href="#module-pars.hmm_autosearch" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmm_autosearch.automatic_search">
+<span class="sig-prename descclassname"><span class="pre">pars.hmm_autosearch.</span></span><span class="sig-name descname"><span class="pre">automatic_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hmm_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasta_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmm_autosearch.automatic_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>function for automatic search against profiles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hmm_dir</strong> (<em>str</em>) – name of directory  with HMMER profiles files</p></li>
+<li><p><strong>fasta_dir</strong> (<em>str</em>) – name of directory with fasta files</p></li>
+<li><p><strong>out_dir</strong> (<em>str</em>) – name of directory for outputs</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – “scan” for hmmscan or “search” for hmmsearch of HMMER tool</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs for hmmscan or hmmsearch</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.hmm_download">
+<span id="pars-hmm-download-module"></span><h2>pars.hmm_download module<a class="headerlink" href="#module-pars.hmm_download" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmm_download.download_hmm">
+<span class="sig-prename descclassname"><span class="pre">pars.hmm_download.</span></span><span class="sig-name descname"><span class="pre">download_hmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">families</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmm_download.download_hmm" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to download hmm profiles of families which names are in the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>families</strong> (<em>list</em>) – list of families</p></li>
+<li><p><strong>dir</strong> (<em>str</em>) – name of directory to which data are downloaded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>downloaded hmm files from pfam</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmm_download.get_names">
+<span class="sig-prename descclassname"><span class="pre">pars.hmm_download.</span></span><span class="sig-name descname"><span class="pre">get_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmm_download.get_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to save names from data frame to list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list</strong> (<em>list</em>) – list with first column of pfam accession numbers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of accession numbers</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmm_download.load_data">
+<span class="sig-prename descclassname"><span class="pre">pars.hmm_download.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmm_download.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to load data with family codes from csv to dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – name of csv file with columns with accession numbers with header</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list with data from the file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.hmmer_command">
+<span id="pars-hmmer-command-module"></span><h2>pars.hmmer_command module<a class="headerlink" href="#module-pars.hmmer_command" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmmer_command.hmmpress">
+<span class="sig-prename descclassname"><span class="pre">pars.hmmer_command.</span></span><span class="sig-name descname"><span class="pre">hmmpress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hmmpress'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hmm_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_command.hmmpress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for HMMpress tool from HAMMER (description from HAMMER manual)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – path to hmmscan tool</p></li>
+<li><p><strong>h</strong> (<em>bool</em>) – Help; print a brief reminder of command line usage and all available options - optional</p></li>
+<li><p><strong>f</strong> (<em>bool</em>) – Force; overwrites any previous hmmpress’ed datafiles. The default is to bitch about any existing files and ask you to delete them first - optional</p></li>
+<li><p><strong>hmm_file</strong> (<em>str</em>) – directory of hmm file</p></li>
+<li><p><strong>fasta_file</strong> (<em>str</em>) – directory of fasta file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output from hmmpress - prepared profiles files</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmmer_command.hmmscan">
+<span class="sig-prename descclassname"><span class="pre">pars.hmmer_command.</span></span><span class="sig-name descname"><span class="pre">hmmscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hmmscan'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'out'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domtblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfamtblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noali</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notextw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incdomE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incdomT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_ga</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_tc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nobias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonull2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MPI</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hmm_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasta_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_command.hmmscan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for HMMscan tool from HAMMER (description from HAMMER manual)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – path to hmmscan tool</p></li>
+<li><p><strong>h</strong> (<em>bool</em>) – Help; print a brief reminder of command line usage and all available options- optional</p></li>
+<li><p><strong>o</strong> (<em>str</em>) – Direct the main human-readable output to a file &lt;f&gt; instead of the default stdout</p></li>
+<li><p><strong>tblout</strong> (<em>str</em><em>, </em><em>optional</em>) – Save a simple tabular (space-delimited) file summarizing the per-target output, with one data line per homologous target model found</p></li>
+<li><p><strong>domtblout</strong> (<em>str</em><em>, </em><em>optional</em>) – Save a simple tabular (space-delimited) file summarizing the per-domain output, with one data line per homologous domain detected in a query sequence for each homologous model</p></li>
+<li><p><strong>pfamtblout</strong> (<em>str</em><em>, </em><em>optional</em>) – Save an especially succinct tabular (space-delimited) file summarizing the per-target output, with one data line per homologous target model found. hmmer user’s guide 99</p></li>
+<li><p><strong>acc</strong> (<em>bool</em>) – Use accessions instead of names in the main output, where available for profiles and/or sequences - optional</p></li>
+<li><p><strong>noali</strong> (<em>bool</em>) – Omit the alignment section from the main output. This can greatly reduce the output volume - optional</p></li>
+<li><p><strong>notextw</strong> (<em>bool</em>) – Unlimit the length of each line in the main output. The default is a limit of 120 characters per line, which helps in displaying the output cleanly on terminals and in editors, but can truncate target profile description lines - optional</p></li>
+<li><p><strong>textw</strong> (<em>int</em><em>, </em><em>optional</em>) – Set the main output’s line length limit to &lt;n&gt; characters per line. The default is 120</p></li>
+<li><p><strong>E</strong> (<em>float</em><em>, </em><em>optional</em>) – In the per-target output, report target profiles with an Evalue of &lt;= &lt;x&gt;. The default is 10.0, meaning that on average, about 10 false positives will be reported per query, so you can see the top of the noise and decide for yourself if it’s really noise</p></li>
+<li><p><strong>T</strong> (<em>float</em><em>, </em><em>optional</em>) – Instead of thresholding per-profile output on E-value, instead report target profiles with a bit score of &gt;= &lt;x&gt;</p></li>
+<li><p><strong>domE</strong> (<em>float</em><em>, </em><em>optional</em>) – In the per-domain output, for target profiles that have already satisfied the per-profile reporting threshold, report individual domains with a conditional E-value of &lt;= &lt;x&gt;</p></li>
+<li><p><strong>domT</strong> (<em>float</em><em>, </em><em>optional</em>) – Instead of thresholding per-domain output on E-value, instead report domains with a bit score of &gt;= &lt;x&gt;. Options for Inclusion Thresholds</p></li>
+<li><p><strong>incE</strong> (<em>float</em><em>, </em><em>optional</em>) – Use an E-value of &lt;= &lt;x&gt; as the per-target inclusion threshold. The default is 0.01, meaning that on average, about 1 100 sean r. eddy false positive would be expected in every 100 searches with different query sequences</p></li>
+<li><p><strong>incT</strong> (<em>float</em><em>, </em><em>optional</em>) – Instead of using E-values for setting the inclusion threshold, instead use a bit score of &gt;= &lt;x&gt; as the per-target inclusion threshold. It would be unusual to use bit score thresholds with hmmscan, because you don’t expect a single score threshold to work for different profiles; different profiles have slightly different expected score distributions</p></li>
+<li><p><strong>incdomE</strong> (<em>float</em><em>, </em><em>optional</em>) – Use a conditional E-value of &lt;= &lt;x&gt; as the per-domain inclusion threshold, in targets that have already satisfied the overall per-target inclusion threshold. The default is 0.01.</p></li>
+<li><p><strong>incdomT</strong> – has been applied specifically using each model’s curated thresholds</p></li>
+<li><p><strong>cut_ga</strong> (<em>bool</em>) – Use the GA (gathering) bit scores in the model to set persequence (GA1) and per-domain (GA2) reporting and inclusion thresholds. GA thresholds are generally considered to be the reliable curated thresholds defining family membership; for example_fasta, in Pfam, these thresholds define what gets included in Pfam Full alignments based on searches with Pfam Seed models - optional</p></li>
+<li><p><strong>cut_nc</strong> (<em>bool</em>) – Use the NC (noise cutoff) bit score thresholds in the model to set per-sequence (NC1) and per-domain (NC2) reporting and inclusion thresholds. NC thresholds are generally considered to be the score of the highest-scoring known false positive - optional</p></li>
+<li><p><strong>cut_tc</strong> (<em>bool</em>) – Use the NC (trusted cutoff) bit score thresholds in the model to set per-sequence (TC1) and per-domain (TC2) reporting and inclusion thresholds. TC thresholds are generally considered to be the score of the lowest-scoring known true positive that is above all known false positives. hmmer user’s guide 101 - optional</p></li>
+<li><p><strong>max</strong> (<em>bool</em>) – Turn off all filters, including the bias filter, and run full Forward/Backward postprocessing on every target. This increases sensitivity somewhat, at a large cost in speed</p></li>
+<li><p><strong>F1</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 1 (MSV) threshold: promote hits w/ P &lt;= F1  [0.02]</p></li>
+<li><p><strong>F2</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 2 (Vit) threshold: promote hits w/ P &lt;= F2  [1e-3]</p></li>
+<li><p><strong>F3</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 3 (Fwd) threshold: promote hits w/ P &lt;= F3  [1e-5]</p></li>
+<li><p><strong>nobias</strong> (<em>bool</em>) – Turn off the bias filter. This increases sensitivity somewhat, but can come at a high cost in speed, especially if the query has biased residue composition (such as a repetitive sequence region, or if it is a membrane protein - optional</p></li>
+<li><p><strong>nonull2</strong> (<em>bool</em>) – Turn off the null2 score corrections for biased composition - optional</p></li>
+<li><p><strong>Z</strong> (<em>float</em><em>, </em><em>optional</em>) – Assert that the total number of targets in your searches is &lt;x&gt;, for the purposes of per-sequence E-value calculations, rather than the actual number of targets seen - optional</p></li>
+<li><p><strong>domZ</strong> (<em>bool</em>) – Assert that the total number of targets in your searches is &lt;x&gt;, for the purposes of per-domain conditional E-value calculations, rather than the number of targets that passed the reporting thresholds.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Set the random number seed to &lt;n&gt;. Some steps in postprocessing require Monte Carlo simulation. The default is to use a fixed seed (42), so that results are exactly reproducible. 102 sean r. eddy Any other positive integer will give different (but also reproducible) results. A choice of 0 uses an arbitrarily chosen seed - optional</p></li>
+<li><p><strong>qformat</strong> (<em>str</em><em>, </em><em>optional</em>) – Assert that input seqfile is in format &lt;s&gt;, bypassing format autodetection. Common choices for &lt;s&gt; include: fasta, embl, genbank. Alignment formats also work; common choices include: stockholm, a2m, afa, psiblast, clustal, phylip. For more information, and for codes for some less common formats, see main documentation. The string &lt;s&gt; is case-insensitive (fasta or FASTA both work).</p></li>
+<li><p><strong>cpu</strong> (<em>int</em><em>, </em><em>optional</em>) – Set the number of parallel worker threads to &lt;n&gt;. On multicore machines, the default is 2. You can also control this number by setting an environment variable, HMMER_NCPU. There is also a master thread, so the actual number of threads that HMMER spawns is &lt;n&gt;+1. This option is not available if HMMER was compiled with POSIX threads support turned off</p></li>
+<li><p><strong>stall</strong> (<em>bool</em>) – For debugging the MPI master/worker version: pause after start, to enable the developer to attach debuggers to the running master and worker(s) processes. Send SIGCONT signal to release the pause. (Under gdb: (gdb) signal SIGCONT) (Only available if optional MPI support was enabled at compiletime.) - optional</p></li>
+<li><p><strong>MPI</strong> (<em>bool</em>) – Run under MPI control with master/worker parallelization (using mpirun, for example_fasta, or equivalent). Only available if optional MPI support was enabled at compile-time. Required argumnets - optional</p></li>
+<li><p><strong>hmm_file</strong> (<em>str</em>) – directory of hmm file</p></li>
+<li><p><strong>fasta_file</strong> (<em>str</em>) – directory of fasta file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output file from hmmscan</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.hmmer_command.hmmsearch">
+<span class="sig-prename descclassname"><span class="pre">pars.hmmer_command.</span></span><span class="sig-name descname"><span class="pre">hmmsearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hmmsearch'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'out'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domtblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfamtblout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noali</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notextw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incdomE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incdomT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_ga</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_tc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nobias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tformat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hmm_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasta_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_command.hmmsearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for HMMsearch tool from HAMMER (description from HAMMER manual)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – path to hmmscan tool</p></li>
+<li><p><strong>h</strong> (<em>bool</em>) – Help; print a brief reminder of command line usage and all available options - optional</p></li>
+<li><p><strong>o</strong> (<em>str</em>) – direct output to file &lt;f&gt;, not stdout</p></li>
+<li><p><strong>A</strong> (<em>str</em><em>, </em><em>optional</em>) – save multiple alignment of all hits to file &lt;f&gt;</p></li>
+<li><p><strong>tblout</strong> (<em>str</em><em>, </em><em>optional</em>) – save parseable table of per-sequence hits to file &lt;f&gt;</p></li>
+<li><p><strong>domtblout</strong> (<em>str</em><em>, </em><em>optional</em>) – save parseable table of per-domain hits to file &lt;f&gt;</p></li>
+<li><p><strong>pfamtblout</strong> (<em>str</em><em>, </em><em>optional</em>) – save table of hits and domains to file, in Pfam format &lt;f&gt;</p></li>
+<li><p><strong>acc</strong> (<em>bool</em>) – prefer accessions over names in output - optional</p></li>
+<li><p><strong>noali</strong> (<em>bool</em>) – don’t output alignments, so output is smaller - optional</p></li>
+<li><p><strong>notextw</strong> (<em>bool</em>) – unlimit ASCII text output line width - optional</p></li>
+<li><p><strong>textw</strong> (<em>int</em><em>, </em><em>optional</em>) – set max width of ASCII text output lines  [120]  (n&gt;=120)</p></li>
+<li><p><strong>E</strong> (<em>float</em><em>, </em><em>optional</em>) – report sequences &lt;= this E-value threshold in output  [10.0]  (x&gt;0)</p></li>
+<li><p><strong>T</strong> (<em>float</em><em>, </em><em>optional</em>) – report sequences &gt;= this score threshold in output</p></li>
+<li><p><strong>domE</strong> (<em>float</em><em>, </em><em>optional</em>) – report domains &lt;= this E-value threshold in output  [10.0]  (x&gt;0)</p></li>
+<li><p><strong>domT</strong> (<em>float</em><em>, </em><em>optional</em>) – report domains &gt;= this score cutoff in output</p></li>
+<li><p><strong>incE</strong> (<em>float</em><em>, </em><em>optional</em>) – consider sequences &lt;= this E-value threshold as significant</p></li>
+<li><p><strong>incT</strong> (<em>float</em><em>, </em><em>optional</em>) – consider sequences &gt;= this score threshold as significant</p></li>
+<li><p><strong>incdomE</strong> (<em>float</em><em>, </em><em>optional</em>) – consider domains &lt;= this E-value threshold as significant</p></li>
+<li><p><strong>incdomT</strong> (<em>float</em><em>, </em><em>optional</em>) – consider domains &gt;= this score threshold as significant</p></li>
+<li><p><strong>cut_ga</strong> (<em>bool</em>) – use profile’s GA gathering cutoffs to set all thresholding - optional</p></li>
+<li><p><strong>cut_nc</strong> (<em>bool</em>) – use profile’s NC noise cutoffs to set all thresholding -  optional</p></li>
+<li><p><strong>cut_tc</strong> (<em>bool</em>) – use profile’s TC trusted cutoffs to set all thresholding - optional</p></li>
+<li><p><strong>max</strong> (<em>bool</em>) – Turn all heuristic filters off (less speed, more power) - optional</p></li>
+<li><p><strong>F1</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 1 (MSV) threshold: promote hits w/ P &lt;= F1  [0.02]</p></li>
+<li><p><strong>F2</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 2 (Vit) threshold: promote hits w/ P &lt;= F2  [1e-3]</p></li>
+<li><p><strong>F3</strong> (<em>float</em><em>, </em><em>optional</em>) – Stage 3 (Fwd) threshold: promote hits w/ P &lt;= F3  [1e-5]</p></li>
+<li><p><strong>nobias</strong> (<em>bool</em>) – turn off composition bias filter - optional</p></li>
+<li><p><strong>nonull</strong> (<em>bool</em>) – turn off biased composition score corrections - optional</p></li>
+<li><p><strong>Z</strong> (<em>float</em><em>, </em><em>optional</em>) – set # of comparisons done, for E-value calculation</p></li>
+<li><p><strong>domZ</strong> (<em>float</em><em>, </em><em>optional</em>) – set # of significant seqs, for domain E-value calculation</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – set RNG seed to &lt;n&gt; (if 0: one-time arbitrary seed)  [42]</p></li>
+<li><p><strong>tformat</strong> (<em>str</em><em>, </em><em>optional</em>) – assert target &lt;seqfile&gt; is in format &lt;s&gt;: no autodetection</p></li>
+<li><p><strong>cpu</strong> (<em>int</em><em>, </em><em>optional</em>) – number of parallel CPU workers to use for multithreads  [1]</p></li>
+<li><p><strong>hmm_file</strong> (<em>str</em>) – directory of hmm file</p></li>
+<li><p><strong>fasta_file</strong> (<em>str</em>) – directory of fasta file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output file from hmmsearch</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.hmmer_file">
+<span id="pars-hmmer-file-module"></span><h2>pars.hmmer_file module<a class="headerlink" href="#module-pars.hmmer_file" title="Permalink to this headline">¶</a></h2>
+<p>module in which is implemented one class - HMMERProfileFileBuilder which enables to parse HMMER profile file</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.hmmer_file.HMMERProfileFileBuilder">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.hmmer_file.</span></span><span class="sig-name descname"><span class="pre">HMMERProfileFileBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nseq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cksum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ga</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_local_msv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_local_viterbi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stats_local_forward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_emission</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_emission</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_transition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_file.HMMERProfileFileBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class for parsing HMMER profile file</p>
+<p>enables to calculate length of profile
+adding new positions of profile
+printing out object
+saving object to a functioning HMMER file which could be used for analisys by HMMER tool</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.hmmer_file.HMMERProfileFileBuilder.add_position">
+<span class="sig-name descname"><span class="pre">add_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match_emission</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_emission</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_transition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_file.HMMERProfileFileBuilder.add_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>adding match_emission probabilities, insert_emission probabilities, state_transition probabilities of new position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>match_emission</strong> (<em>dict</em>) – dictionary of -log0.25 probabilities of match emission</p></li>
+<li><p><strong>insert_emission</strong> (<em>dict</em>) – dictionary of -log0.25 probabilities of insert emission</p></li>
+<li><p><strong>state_transition</strong> (<em>dict</em>) – dictionary of -log0.25 probabilities of state transition</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.hmmer_file.HMMERProfileFileBuilder.file_format">
+<span class="sig-name descname"><span class="pre">file_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_file.HMMERProfileFileBuilder.file_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>save object to HMMER profile file which could be used for calculation by hmmsearch and hmmscan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – name of new hmm file which will be created</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>hmm file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.hmmer_file.HMMERProfileFileBuilder.get_length">
+<span class="sig-name descname"><span class="pre">get_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.hmmer_file.HMMERProfileFileBuilder.get_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>return length of profile
+:return: length of profile
+:rtype: int</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.pfam_architecture">
+<span id="pars-pfam-architecture-module"></span><h2>pars.pfam_architecture module<a class="headerlink" href="#module-pars.pfam_architecture" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.pfam_architecture.PfamArchitecture">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.pfam_architecture.</span></span><span class="sig-name descname"><span class="pre">PfamArchitecture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_architecture.PfamArchitecture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple class for protein domains architecture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>domains</strong> (<em>list</em>) – list of domains in the architecture</p></li>
+<li><p><strong>number_of_sequences</strong> (<em>int</em>) – number of sequences with this architecture</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.pfam_clan">
+<span id="pars-pfam-clan-module"></span><h2>pars.pfam_clan module<a class="headerlink" href="#module-pars.pfam_clan" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.pfam_clan.PfamClan">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.pfam_clan.</span></span><span class="sig-name descname"><span class="pre">PfamClan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_clan.PfamClan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pars.xfam_object.XfamObject" title="pars.xfam_object.XfamObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">pars.xfam_object.XfamObject</span></code></a></p>
+<p>conteins information about Pfam clan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>access</strong> (<em>str</em>) – </p></li>
+<li><p><strong>short_name</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p>:type short_name:str
+:param type: type of pfam entry
+:type type: str
+:param scop_id: SCOP identificator of clan
+:type scop_id: str
+:param description: Short description of clan
+:type description: str
+:param pdb_ref: List of PDB names associated with a family
+:type pdb_ref: list
+:param members: List of families that are members of this clan
+:type members: list</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.pfam_clan.PfamClan.get_architectures">
+<span class="sig-name descname"><span class="pre">get_architectures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_clan.PfamClan.get_architectures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of architectures of Pfam clan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of PfamArchitecture objects</p>
+</dd>
+<dt class="field-even">Rettype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.pfam_family">
+<span id="pars-pfam-family-module"></span><h2>pars.pfam_family module<a class="headerlink" href="#module-pars.pfam_family" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.pfam_family.PfamFamily">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.pfam_family.</span></span><span class="sig-name descname"><span class="pre">PfamFamily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_family.PfamFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pars.xfam_object.XfamObject" title="pars.xfam_object.XfamObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">pars.xfam_object.XfamObject</span></code></a></p>
+<p>class contains information about pfam family.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>access</strong> (<em>str</em>) – pfam access of family</p></li>
+<li><p><strong>short_name</strong> (<em>str</em>) – pfam id of family</p></li>
+<li><p><strong>type</strong> (<em>str</em>) – A type of pfam entry</p></li>
+<li><p><strong>seed_len</strong> (<em>int</em>) – Number o sequences tin the seed alignment of family</p></li>
+<li><p><strong>full_len</strong> (<em>int</em>) – Number of sequences in the full alignment of family</p></li>
+<li><p><strong>avarage_len</strong> – Avarage length of amino-acid regions in the full alignment</p></li>
+<li><p><strong>avarage_id</strong> (<em>float</em>) – Avarage percentage identity of sequences in the full alignment</p></li>
+<li><p><strong>avarage_coverage</strong> (<em>float</em>) – Fraction of whole sequence length that pfam entry covers</p></li>
+<li><p><strong>changestatus</strong> (<em>str</em>) – Has family been changes or been added in this pfam realse?</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – A short description of the family</p></li>
+<li><p><strong>go_ref</strong> (<em>list</em>) – List of GO ids associated with a family</p></li>
+<li><p><strong>so_ref</strong> (<em>list</em>) – List of SO ids associated with a family</p></li>
+<li><p><strong>pubmed_ref</strong> (<em>list</em>) – List of Pubmed ids associated with a family</p></li>
+<li><p><strong>pdb_ref</strong> (<em>list</em>) – List of PDB names associated with a family</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.pfam_family.PfamFamily.get_architectures">
+<span class="sig-name descname"><span class="pre">get_architectures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_family.PfamFamily.get_architectures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of architectures of PfamFamily.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of PfamArchitecture objects</p>
+</dd>
+<dt class="field-even">Rettype</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.pfam_family.PfamFamily.get_full">
+<span class="sig-name descname"><span class="pre">get_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_family.PfamFamily.get_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get full alignemts of PfamFamily sequences in the fasta format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Biopython iterator of sequences from alignment</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Bio.SeqIO.FastaIO.FastaIterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.pfam_family.PfamFamily.get_seed">
+<span class="sig-name descname"><span class="pre">get_seed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_family.PfamFamily.get_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get seed alignemts of PfamFamily sequences in the fasta format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Biopython iterator of sequences from alignment</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Bio.SeqIO.FastaIO.FastaIterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.pfam_sequences">
+<span id="pars-pfam-sequences-module"></span><h2>pars.pfam_sequences module<a class="headerlink" href="#module-pars.pfam_sequences" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.pfam_sequences.clan_members">
+<span class="sig-prename descclassname"><span class="pre">pars.pfam_sequences.</span></span><span class="sig-name descname"><span class="pre">clan_members</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clans</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_sequences.clan_members" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function return the dictionary of pfam families belonging to the clans</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>clans</strong> – list or string with the name of the clan</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Ditionary of clan name as key and clan members as value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.pfam_sequences.family_seq">
+<span class="sig-prename descclassname"><span class="pre">pars.pfam_sequences.</span></span><span class="sig-name descname"><span class="pre">family_seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">families</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fasta'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_sequences.family_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function search for sequences of the family in format and form specified by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>families</strong> (<em>str</em><em> or </em><em>list</em>) – Id or accession of the family, or list of the families names</p></li>
+<li><p><strong>form</strong> (<em>str</em><em>, </em><em>optional</em>) – Output format of ssequences. Available: fasta, selex, stockholm, msf, defaults to fasta</p></li>
+<li><p><strong>type</strong> (<em>str</em><em>, </em><em>optional</em>) – A type of the sequences from the fmaily site. Available: full, seed, defaults to full</p></li>
+<li><p><strong>download</strong> (<em>bool optional</em>) – ‘True’ if download to the file, defaults to False</p></li>
+<li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – path to the outpur file if download is True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of SeqIO type objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.pfam_sequences.family_tree">
+<span class="sig-prename descclassname"><span class="pre">pars.pfam_sequences.</span></span><span class="sig-name descname"><span class="pre">family_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">families</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_sequences.family_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function search for phylogenetic tree of the family in the Newick format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>families</strong> (<em>str</em><em> or </em><em>list</em>) – Id or accession of the family, or list of the families names</p></li>
+<li><p><strong>download</strong> (<em>bool optional</em>) – ‘True’ if download to the file, defaults to False</p></li>
+<li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – path to the outpur file if download is True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of PhyloIO type objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.pfam_sequences.get_alternative">
+<span class="sig-prename descclassname"><span class="pre">pars.pfam_sequences.</span></span><span class="sig-name descname"><span class="pre">get_alternative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">families</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_sequences.get_alternative" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function give alternative name for the family - for id it gves accession,
+for accession - gives id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>families</strong> (<em>str</em><em> or </em><em>list</em>) – Id or accession of the family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary with the accession as key and id as value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.pfam_sequences.go_terms">
+<span class="sig-prename descclassname"><span class="pre">pars.pfam_sequences.</span></span><span class="sig-name descname"><span class="pre">go_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.pfam_sequences.go_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function give go terms connected to the pfam family</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>families</strong> (<em>str</em>) – Id or accession of the family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Set of go terms</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.rfam_clan">
+<span id="pars-rfam-clan-module"></span><h2>pars.rfam_clan module<a class="headerlink" href="#module-pars.rfam_clan" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.rfam_clan.RfamClan">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.rfam_clan.</span></span><span class="sig-name descname"><span class="pre">RfamClan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.rfam_clan.RfamClan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pars.xfam_object.XfamObject" title="pars.xfam_object.XfamObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">pars.xfam_object.XfamObject</span></code></a></p>
+<p>conteins inforation about Rfam Clan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>access</strong> (<em>str</em>) – Rfam access of clan</p></li>
+<li><p><strong>short_name</strong> (<em>str</em>) – Rfam id of clan</p></li>
+<li><p><strong>type</strong> (<em>str</em>) – type of rfam entry</p></li>
+<li><p><strong>pdb-ref</strong> – List of PDB names associated with a family</p></li>
+<li><p><strong>members</strong> (<em>list</em>) – List of families that are members of this clan</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.rfam_family">
+<span id="pars-rfam-family-module"></span><h2>pars.rfam_family module<a class="headerlink" href="#module-pars.rfam_family" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.rfam_family.RfamFamily">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.rfam_family.</span></span><span class="sig-name descname"><span class="pre">RfamFamily</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.rfam_family.RfamFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pars.xfam_object.XfamObject" title="pars.xfam_object.XfamObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">pars.xfam_object.XfamObject</span></code></a></p>
+<p>contains information about Rfam familly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>access</strong> (<em>str</em>) – Rfam access of family</p></li>
+<li><p><strong>short_name</strong> (<em>str</em>) – Rfam id of family</p></li>
+<li><p><strong>type</strong> (<em>str</em>) – type of rfam entry</p></li>
+<li><p><strong>go_ref</strong> (<em>list</em>) – List of GO ids associated with a family</p></li>
+<li><p><strong>so_ref</strong> (<em>list</em>) – List of SO ids associated with a family</p></li>
+<li><p><strong>pubmed_ref</strong> (<em>list</em>) – List of Pubmed ids associated with a family</p></li>
+<li><p><strong>pdb_ref</strong> (<em>list</em>) – List of PDB names associated with a family</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.rfam_family.RfamFamily.get_sequences">
+<span class="sig-name descname"><span class="pre">get_sequences</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.rfam_family.RfamFamily.get_sequences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get alignemts of RfamFamily sequences in fasta format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Biopython iterator of sequences from alignment</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Bio.SeqIO.FastaIO.FastaIterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.rfamily_seq">
+<span id="pars-rfamily-seq-module"></span><h2>pars.rfamily_seq module<a class="headerlink" href="#module-pars.rfamily_seq" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.rfamily_seq.rfamily_seq">
+<span class="sig-prename descclassname"><span class="pre">pars.rfamily_seq.</span></span><span class="sig-name descname"><span class="pre">rfamily_seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">families</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fasta'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.rfamily_seq.rfamily_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function search for sequences of the family in format and form specified by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>families</strong> (<em>str</em><em> or </em><em>list</em>) – accession of the family, or list of the families accession</p></li>
+<li><p><strong>form</strong> (<em>str</em><em>, </em><em>optional</em>) – Output format of ssequences. Available: fasta, stockholm, defaults to fasta</p></li>
+<li><p><strong>download</strong> (<em>bool optional</em>) – ‘True’ if download to the file, defaults to False</p></li>
+<li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – path to the outpur file if download is True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of SeqIO type objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.xfam_object">
+<span id="pars-xfam-object-module"></span><h2>pars.xfam_object module<a class="headerlink" href="#module-pars.xfam_object" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pars.xfam_object.XfamObject">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pars.xfam_object.</span></span><span class="sig-name descname"><span class="pre">XfamObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_object.XfamObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An abstract class, base for PfamFamily,PfamClan,RfamFamily and RfamClan.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pars.xfam_object.XfamObject.get_tree">
+<span class="sig-name descname"><span class="pre">get_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_object.XfamObject.get_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get phylogenetic tree of entry if entry is not a clan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Phylogenetic tree in newick format</p>
+</dd>
+<dt class="field-even">Rettype</dt>
+<dd class="field-even"><p>Bio.Phylo.Newick.Tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pars.xfam_to">
+<span id="pars-xfam-to-module"></span><h2>pars.xfam_to module<a class="headerlink" href="#module-pars.xfam_to" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.pfam_clan_to_pdb">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">pfam_clan_to_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.pfam_clan_to_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated PDB ids for given pfam clan access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>clan</strong> (<em>str</em>) – pfam accession key of clan</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated PDB ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.pfam_to_go">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">pfam_to_go</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.pfam_to_go" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated GO ids for given pfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – pfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated GO ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.pfam_to_pdb">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">pfam_to_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.pfam_to_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated PDB ids for given pfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – pfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated PDB ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.pfam_to_pubmed">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">pfam_to_pubmed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.pfam_to_pubmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated pubmed ids for given pfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – pfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated Pubmed ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.pfam_to_so">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">pfam_to_so</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.pfam_to_so" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated SO ids for given pfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – pfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated SO ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.rfam_clan_to_pdb">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">rfam_clan_to_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.rfam_clan_to_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated PDB ids for given rfam clan access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>clan</strong> (<em>str</em>) – rfam accession key of clan</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated PDB ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.rfam_to_go">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">rfam_to_go</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.rfam_to_go" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated GO ids for given rfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – rfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated Go ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.rfam_to_pdb">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">rfam_to_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.rfam_to_pdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated PDB ids for given rfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – rfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated PDB ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.rfam_to_pubmed">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">rfam_to_pubmed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.rfam_to_pubmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated pubmed ids for given rfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – rfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated pubmed ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pars.xfam_to.rfam_to_so">
+<span class="sig-prename descclassname"><span class="pre">pars.xfam_to.</span></span><span class="sig-name descname"><span class="pre">rfam_to_so</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pars.xfam_to.rfam_to_so" title="Permalink to this definition">¶</a></dt>
+<dd><p>get a list of associated SO ids for given rfam access key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – rfam accession key of family</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of associated SO ids</p>
+</dd>
+</dl>
+<p>:rettype:list</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="README.html" class="btn btn-neutral float-left" title="PARS (PfAm bRowSer)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Julia Gołębiowska, Adam Cicherski, Patrycja Owczarek.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

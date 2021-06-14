@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Tutorials &mdash; PARS 1.0 documentation</title>
+  <title>Tutorial &mdash; PARS 1.0 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="xfam_to module" href="xfam_to.html" /> 
+    <link rel="prev" title="PARS package" href="pars.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,21 +88,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="README.html">PARS (PfAm bRowSer) README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">scripts</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hmm">HMM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#downloading-and-modifying-hmm-files">Downloading and modifying HMM files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search-by-hmmsearch-and-hmmerscan-and-automatisation">Search by hmmsearch and hmmerscan and automatisation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#download-pfam-info">Download pfam info</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pfam-sequences">Pfam sequences</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pfam-tree">Pfam tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alternative-terms">Alternative terms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#go-terms">GO terms</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">PARS (PfAm bRowSer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pars.html">PARS package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-pfam-rfam-info">Download pfam/rfam info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hmm">HMM</a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +143,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Tutorials</li>
+      <li>Tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,14 +162,208 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <p>All used/downloaded files in this tutorial are deposed in folder “data”. Outputs are deposed in folder data/outs.</p>
+<div class="section" id="download-pfam-rfam-info">
+<h2>Download pfam/rfam info<a class="headerlink" href="#download-pfam-rfam-info" title="Permalink to this headline">¶</a></h2>
+<p>You can choose one of two option when downloading the information about pfam/rfam family: create one of the classes, which download all data automatically or by the function, which will download only requested information.</p>
+<p><strong>Pfam sequences</strong></p>
+<p>Pfam sequences will automatically download all sequences format specified by the user:</p>
+<ul class="simple">
+<li><p>fasta, stockholm, msf format in SeqIO object</p></li>
+<li><p>selex format in str object</p></li>
+<li><p>full or seed format of sequences
+All of these sequences can be downloaded or downloaded and saved as file.</p></li>
+</ul>
+<p>To download all full sequences in globin family in fasta format type:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_seqs = family_seq(‘PF00042’, form=&#39;fasta&#39;, type=&#39;full&#39;)
+</pre></div>
+</div>
+<p>The result is fully compatible with the <a class="reference external" href="https://biopython.org/wiki/SeqIO">SeqIO package</a></p>
+<p><strong>Rfam sequences</strong></p>
+<p>rfamily_seq will automatically download all sequences in the format specified by the user:</p>
+<ul class="simple">
+<li><p>fasta, stockholm format in SeqIO object
+Sequences can be downloaded or downloaded and saved as file.</p></li>
+</ul>
+<p>To download all sequences of Glutamine riboswitch family in fasta format type:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>riboswitch_seq = rfamily_seq(‘RF01739’, form=&#39;fasta&#39;)
+</pre></div>
+</div>
+<p>The result is fully compatible with the <a class="reference external" href="https://biopython.org/wiki/SeqIO">SeqIO package</a></p>
+<p><strong>Pfam tree</strong></p>
+<p>Similar to the pfam sequences the tree of the family can be downloaded in the Phylo format from Biopython package. Users can specify if they wish to download the newick format into the file.
+To download the tree of the globin family:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_tree = family_tree(‘PF00042’)
+</pre></div>
+</div>
+<p>The result is fully compatible with the <a class="reference external" href="https://biopython.org/wiki/Phylo">Phylo package</a></p>
+<p><strong>Alternative terms</strong></p>
+<p>Sometimes we don’t have the accession name of the family. With get_alternative function, we can obtain the accession name with the only id, or get id with the only accession.
+To get the accession for globin:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_acc = get_alternative(‘Globin’) 
+print(globin_acc)
+</pre></div>
+</div>
+<p>Output is:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span> ’PF00042’
+</pre></div>
+</div>
+<p><strong>GO terms</strong></p>
+<p>pfam_sequences can also obtain all GO terms which users can find on pfam family website. They are represented as a set of string GO terms.
+To get GO terms fot he family:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_go = go_terms(’PF00042’)
+print(globin_go)
+</pre></div>
+</div>
+<p>The output will be:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;GO:0051920&#39;</span><span class="p">,</span> <span class="s1">&#39;GO:0055114&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Domains Architectures</strong></p>
+<p>Domain architectures can be downloaded as a list of PfamArchitecture objects by a function family_architectures. PfamArchitecture objects has two important parameters - domains ( a list of domains in architecture) and number_of_sequences. Let’s see some architectures of the globin family.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">architectures</span><span class="o">=</span><span class="n">family_architectures</span><span class="p">(</span><span class="s1">&#39;PF00042&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">architectures</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PfamArchitecture</span><span class="p">([</span><span class="s1">&#39;Globin&#39;</span><span class="p">],</span> <span class="mi">6185</span><span class="p">),</span> <span class="n">PfamArchitecture</span><span class="p">([</span><span class="s1">&#39;Globin&#39;</span><span class="p">,</span> <span class="s1">&#39;FAD_binding_6&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD_binding_1&#39;</span><span class="p">],</span> <span class="mi">287761</span><span class="p">),</span> <span class="n">PfamArchitecture</span><span class="p">([</span><span class="s1">&#39;Globin&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD_binding_1&#39;</span><span class="p">],</span> <span class="mi">4711</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Other Databases references</strong></p>
+<p>Module xfam_to contains useful functions for obtaining all  PDB, SO, PubMed, or GO terms which users can find on Pfam/Rfam family website. They are represented as a list of strings. Let’s see some examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">globin_pubmed</span><span class="o">=</span><span class="n">pfam_to_pubmed</span><span class="p">(</span><span class="s1">&#39;PF00042&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;3656444&#39;</span><span class="p">,</span> <span class="s1">&#39;6292840&#39;</span><span class="p">,</span> <span class="s1">&#39;2448639&#39;</span><span class="p">,</span> <span class="s1">&#39;9108146&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">riboswitch_pdb</span><span class="o">=</span><span class="n">rfam_to_pdb</span><span class="p">(</span><span class="s1">&#39;RF01739&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;5DDR&#39;</span><span class="p">,</span> <span class="s1">&#39;5DDQ&#39;</span><span class="p">,</span> <span class="s1">&#39;5DDP&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>for other useful functions check the documentation of the xfam_to module.</p>
+<p><strong>Families Classes</strong></p>
+<p>As mentioned above, we can also download family data to the object as follows:</p>
+<div class="highlight-ython3 notranslate"><div class="highlight"><pre><span></span>Globin =PfamFamily(‘PF00042’)
+</pre></div>
+</div>
+<p>let’s see all information stored in this object</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Globin</span><span class="o">.</span><span class="vm">__dict__</span>
+
+<span class="n">Output</span><span class="p">:</span>
+<span class="p">{</span><span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="s1">&#39;pfam&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;access&#39;</span><span class="p">:</span> <span class="s1">&#39;PF00042&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Globin&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Domain&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;seed_len&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span>
+ <span class="s1">&#39;full_len&#39;</span><span class="p">:</span> <span class="mi">10097</span><span class="p">,</span>
+ <span class="s1">&#39;avarage_len&#39;</span><span class="p">:</span> <span class="mf">99.6</span><span class="p">,</span>
+ <span class="s1">&#39;avarage_id&#39;</span><span class="p">:</span> <span class="mf">21.0</span><span class="p">,</span>
+ <span class="s1">&#39;avarage_coverage&#39;</span><span class="p">:</span> <span class="mf">37.14</span><span class="p">,</span>
+ <span class="s1">&#39;changestatus&#39;</span><span class="p">:</span> <span class="s1">&#39;Changed&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Globin&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;go_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GO:0020037&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;so_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SO:0000417&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;pubmed_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;3656444&#39;</span><span class="p">,</span> <span class="s1">&#39;6292840&#39;</span><span class="p">,</span> <span class="s1">&#39;2448639&#39;</span><span class="p">,</span> <span class="s1">&#39;9108146&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;pdb_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;3G4W&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;3TM9&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;3MOU&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;1G09&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>We can download also alignments and tree presented in previous section by:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">full</span> <span class="o">=</span><span class="n">Globin</span><span class="o">.</span><span class="n">get_full</span><span class="p">()</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="n">Globin</span><span class="o">.</span><span class="n">get_seed</span><span class="p">()</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">Globin</span><span class="o">.</span><span class="n">get_tree</span><span class="p">()</span>
+<span class="n">architectures</span> <span class="o">=</span> <span class="n">Globin</span><span class="o">.</span><span class="n">get_architectures</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We can do this also for Rfam families by class RfamFamily.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Riboswitch</span><span class="o">=</span><span class="n">RfamFamily</span><span class="p">(</span><span class="s1">&#39;RF01739&#39;</span><span class="p">)</span>
+<span class="n">Riboswitch</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="s1">&#39;rfam&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;access&#39;</span><span class="p">:</span> <span class="s1">&#39;RF01739&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;glnA&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;family&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;go_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GO:0070406&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;so_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SO:0000035&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;pubmed_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;18787703&#39;</span><span class="p">,</span> <span class="s1">&#39;20230605&#39;</span><span class="p">,</span> <span class="s1">&#39;21282981&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;pdb_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;5DDR&#39;</span><span class="p">,</span> <span class="s1">&#39;5DDQ&#39;</span><span class="p">,</span> <span class="s1">&#39;5DDP&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>and now for rest of data:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">alignment</span><span class="o">=</span><span class="n">Riboswitch</span><span class="o">.</span><span class="n">get_sequences</span><span class="p">()</span>
+<span class="n">tree</span><span class="o">=</span><span class="n">Riboswitch</span><span class="o">.</span><span class="n">get_tree</span><span class="p">()</span>
+<span class="n">architectures</span><span class="o">=</span><span class="n">Riboswitch</span><span class="o">.</span><span class="n">get_architectures</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Clans classes</strong></p>
+<p>PARS also provides classes for working with Pfam/Rfam clans. Let’s use it with a Globin-like clan.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Globinclan</span> <span class="o">=</span> <span class="n">PfamClan</span><span class="p">(</span><span class="s1">&#39;CL0090&#39;</span><span class="p">)</span>
+<span class="n">Globinclan</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+<p>Otput:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="s1">&#39;pfam&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;access&#39;</span><span class="p">:</span> <span class="s1">&#39;CL0090&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Globin&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;clan&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;scop_id&#39;</span><span class="p">:</span> <span class="s1">&#39;46458&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Globin-like&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;pdb_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;3BRP&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;4GZG&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;1A9W&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;1MLM&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;3HYU&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">],</span>
+ <span class="s1">&#39;members&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;PF01152&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF08678&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF11563&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF14361&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF09385&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF00042&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;PF00502&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>We can also download architectures, like for PfamFamily by:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">architectures</span> <span class="o">=</span> <span class="n">Globinclan</span><span class="o">.</span><span class="n">get_architectures</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And last but not least RfamClan class. Let’s use it with Csr_Rsm_clan</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Csrclan</span><span class="o">=</span><span class="n">RfamClan</span><span class="p">(</span><span class="s1">&#39;CL00106&#39;</span><span class="p">)</span>
+<span class="n">Csrclan</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="s1">&#39;rfam&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;access&#39;</span><span class="p">:</span> <span class="s1">&#39;CL00106&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Csr_Rsm_clan&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;clan&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;pdb_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2MF1&#39;</span><span class="p">,</span> <span class="s1">&#39;2MF0&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;members&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;RF00195&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF00115&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF00084&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF00166&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF02809&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF02767&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF00018&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF02144&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;RF01731&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="hmm">
 <h2>HMM<a class="headerlink" href="#hmm" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="downloading-and-modifying-hmm-files">
-<h3>Downloading and modifying HMM files<a class="headerlink" href="#downloading-and-modifying-hmm-files" title="Permalink to this headline">¶</a></h3>
-<p>For downloading hmm profiles you can use the same csv file as for clans/families downloading. For downloading hmm profiles you can use also a file with only the first column with family names. The header is obligatory.</p>
+<p><strong>Downloading and modifying HMM files</strong>
+For downloading hmm profiles you can use the same csv file as for clans/families downloading. For downloading hmm profiles you can use also a file with only the first column with family names. The header is obligatory.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hmm_download</span>
 <span class="nb">list</span> <span class="o">=</span> <span class="n">hmm_download</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s2">&quot;data/pfam-seq.csv&quot;</span><span class="p">)</span>
 <span class="n">families</span> <span class="o">=</span> <span class="n">hmm_download</span><span class="o">.</span><span class="n">get_names</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
@@ -191,7 +375,7 @@
 <span class="n">hmm_download</span><span class="o">.</span><span class="n">download_hmm</span><span class="p">(</span><span class="n">family</span><span class="p">,</span> <span class="s2">&quot;hmm_folder&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The hmm profile flat file downloaded from Pfam could be wrapped into an object. The method get_length() returns the number of positions in the profile. Also, the initial probabilities are counted.</p>
+<p>The hmm profile flat file downloaded from Pfam could be wrapped into an object. The method get_length() returns the number of positions in the profile (the initial probabilities are counted).</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hammer_to_object</span>
 <span class="n">hmmObj</span> <span class="o">=</span> <span class="n">hammer_to_object</span><span class="o">.</span><span class="n">file_to_object</span><span class="p">(</span><span class="s2">&quot;hmm_folder/PF00042.hmm&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hmmObj</span><span class="o">.</span><span class="n">get_length</span><span class="p">())</span>
@@ -246,10 +430,8 @@
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">hmmObj</span><span class="o">.</span><span class="n">file_format</span><span class="p">(</span><span class="s2">&quot;hmm_folder/test.hmm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="search-by-hmmsearch-and-hmmerscan-and-automatisation">
-<h3>Search by hmmsearch and hmmerscan and automatisation<a class="headerlink" href="#search-by-hmmsearch-and-hmmerscan-and-automatisation" title="Permalink to this headline">¶</a></h3>
-<p>For basic analysis, by hmmsearch you can use the following command. To use more parameters see the documentation.</p>
+<p><strong>Search by hmmsearch and hmmerscan and automatisation</strong>
+For basic analysis, by hmmsearch you can use the following command. To use more parameters see the documentation.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hmmer_command</span>
 <span class="n">hmmer_command</span><span class="o">.</span><span class="n">hmmsearch</span><span class="p">(</span><span class="n">o</span><span class="o">=</span><span class="s2">&quot;out/hem.hmmsearchout&quot;</span><span class="p">,</span> <span class="n">hmm_file</span><span class="o">=</span><span class="s2">&quot;hmm_folder/PF00042.hmm&quot;</span><span class="p">,</span> <span class="n">fasta_file</span><span class="o">=</span><span class="s2">&quot;fasta_folder/example_hem.fasta&quot;</span><span class="p">)</span>
 </pre></div>
@@ -275,61 +457,6 @@ In the folder example_hmm are files: PF00042.hmm and PF00002.hmm, and in folder 
 </div>
 </div>
 </div>
-<div class="section" id="download-pfam-info">
-<h2>Download pfam info<a class="headerlink" href="#download-pfam-info" title="Permalink to this headline">¶</a></h2>
-<p>You can choose one of two option when downloading the information about pfam family: create the class family, which download all data automatically or by the function, which will download only requested information.</p>
-<div class="section" id="pfam-sequences">
-<h3>Pfam sequences<a class="headerlink" href="#pfam-sequences" title="Permalink to this headline">¶</a></h3>
-<p>Pfam sequences will automatically download all sequences format specified by the user:</p>
-<ul class="simple">
-<li><p>fasta, stockholm, msf format in SeqIO object</p></li>
-<li><p>selex format in str object</p></li>
-<li><p>full or seed format of sequences
-All of these sequences can be downloaded or downloaded and saved as file.</p></li>
-</ul>
-<p>To download all full sequences in globin family in fasta format type:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_seqs = family_seq(‘PF00042’, form=&#39;fasta&#39;, type=&#39;full&#39;)
-</pre></div>
-</div>
-<p>The result is fully compatible with the <a class="reference external" href="https://biopython.org/wiki/SeqIO">SeqIO package</a></p>
-</div>
-<div class="section" id="pfam-tree">
-<h3>Pfam tree<a class="headerlink" href="#pfam-tree" title="Permalink to this headline">¶</a></h3>
-<p>Similar to the pfam sequences the tree of the family can be downloaded in the Phylo format from Biopython package. Users can specify if they wish to download the newick format into the file.
-To download the tree of the globin family:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_tree = family_tree(‘PF00042’)
-</pre></div>
-</div>
-<p>The result is fully compatible with the <a class="reference external" href="https://biopython.org/wiki/Phylo">Phylo package</a></p>
-</div>
-<div class="section" id="alternative-terms">
-<h3>Alternative terms<a class="headerlink" href="#alternative-terms" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes we don’t have the accession name of the family. With get_alternative function, we can obtain the accession name with the only id, or get id with the only accession.
-To get the accession for globin:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_acc = get_alternative(‘Globin’) 
-print(globin_acc)
-</pre></div>
-</div>
-<p>Output is:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span> ’PF00042’
-</pre></div>
-</div>
-</div>
-<div class="section" id="go-terms">
-<h3>GO terms<a class="headerlink" href="#go-terms" title="Permalink to this headline">¶</a></h3>
-<p>pfam_sequences can also obtain all GO terms which users can find on pfam family website. They are represented as a set of string GO terms.
-To get GO terms fot he family:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>globin_go = go_terms(’PF00042’)
-print(globin_go)
-</pre></div>
-</div>
-<p>The output will be:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;GO:0051920&#39;</span><span class="p">,</span> <span class="s1">&#39;GO:0055114&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 
 
            </div>
@@ -337,7 +464,7 @@ print(globin_go)
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="xfam_to.html" class="btn btn-neutral float-left" title="xfam_to module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pars.html" class="btn btn-neutral float-left" title="PARS package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

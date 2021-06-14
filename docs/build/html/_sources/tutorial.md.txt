@@ -1,7 +1,222 @@
-# Tutorials
+# Tutorial
 All used/downloaded files in this tutorial are deposed in folder "data". Outputs are deposed in folder data/outs.
+
+
+## Download pfam/rfam info
+
+You can choose one of two option when downloading the information about pfam/rfam family: create one of the classes, which download all data automatically or by the function, which will download only requested information.
+
+**Pfam sequences**
+
+Pfam sequences will automatically download all sequences format specified by the user:
+* fasta, stockholm, msf format in SeqIO object
+* selex format in str object
+* full or seed format of sequences
+All of these sequences can be downloaded or downloaded and saved as file.
+
+To download all full sequences in globin family in fasta format type:
+```python3
+globin_seqs = family_seq(‘PF00042’, form='fasta', type='full')
+```
+The result is fully compatible with the [SeqIO package](https://biopython.org/wiki/SeqIO)
+
+**Rfam sequences**
+
+rfamily_seq will automatically download all sequences in the format specified by the user:
+* fasta, stockholm format in SeqIO object
+Sequences can be downloaded or downloaded and saved as file.
+
+To download all sequences of Glutamine riboswitch family in fasta format type:
+```python3
+riboswitch_seq = rfamily_seq(‘RF01739’, form='fasta')
+```
+
+The result is fully compatible with the [SeqIO package](https://biopython.org/wiki/SeqIO)
+
+
+**Pfam tree**
+
+Similar to the pfam sequences the tree of the family can be downloaded in the Phylo format from Biopython package. Users can specify if they wish to download the newick format into the file.
+To download the tree of the globin family:
+```python3
+globin_tree = family_tree(‘PF00042’)
+```
+
+The result is fully compatible with the [Phylo package](https://biopython.org/wiki/Phylo)
+
+**Alternative terms**
+
+Sometimes we don’t have the accession name of the family. With get_alternative function, we can obtain the accession name with the only id, or get id with the only accession.
+To get the accession for globin:
+```python3
+globin_acc = get_alternative(‘Globin’) 
+print(globin_acc)
+```
+
+Output is:
+```python3
+ ’PF00042’
+```
+
+**GO terms**
+
+pfam_sequences can also obtain all GO terms which users can find on pfam family website. They are represented as a set of string GO terms.
+To get GO terms fot he family:
+```python3
+globin_go = go_terms(’PF00042’)
+print(globin_go)
+```
+
+The output will be:
+```python3
+('GO:0051920', 'GO:0055114')
+```
+**Domains Architectures**
+
+Domain architectures can be downloaded as a list of PfamArchitecture objects by a function family_architectures. PfamArchitecture objects has two important parameters - domains ( a list of domains in architecture) and number_of_sequences. Let's see some architectures of the globin family.
+```python3
+architectures=family_architectures('PF00042')
+print(architectures[:3])
+```
+Output:
+```python3
+[PfamArchitecture(['Globin'], 6185), PfamArchitecture(['Globin', 'FAD_binding_6', 'NAD_binding_1'], 287761), PfamArchitecture(['Globin', 'NAD_binding_1'], 4711)]
+```
+**Other Databases references**
+
+Module xfam_to contains useful functions for obtaining all  PDB, SO, PubMed, or GO terms which users can find on Pfam/Rfam family website. They are represented as a list of strings. Let's see some examples
+```python3
+globin_pubmed=pfam_to_pubmed('PF00042')
+```
+Output:
+```python3
+['3656444', '6292840', '2448639', '9108146']
+```
+```python3
+riboswitch_pdb=rfam_to_pdb('RF01739')
+```
+Output:
+```python3
+['5DDR', '5DDQ', '5DDP']
+```
+for other useful functions check the documentation of the xfam_to module.
+
+**Families Classes**
+
+As mentioned above, we can also download family data to the object as follows: 
+```ython3
+Globin =PfamFamily(‘PF00042’)
+```
+
+let's see all information stored in this object
+```python3
+Globin.__dict__
+
+Output:
+{'db': 'pfam',
+ 'access': 'PF00042',
+ 'short_name': 'Globin',
+ 'type': 'Domain',
+ 'seed_len': 73,
+ 'full_len': 10097,
+ 'avarage_len': 99.6,
+ 'avarage_id': 21.0,
+ 'avarage_coverage': 37.14,
+ 'changestatus': 'Changed',
+ 'description': 'Globin',
+ 'go_ref': ['GO:0020037'],
+ 'so_ref': ['SO:0000417'],
+ 'pubmed_ref': ['3656444', '6292840', '2448639', '9108146'],
+ 'pdb_ref': ['3G4W',
+  '3TM9',
+  '3MOU',
+  '1G09',...]}
+```
+We can download also alignments and tree presented in previous section by:
+```python3
+full =Globin.get_full()
+seed = Globin.get_seed()
+tree = Globin.get_tree()
+architectures = Globin.get_architectures()
+```
+We can do this also for Rfam families by class RfamFamily.
+```python3
+Riboswitch=RfamFamily('RF01739')
+Riboswitch.__dict__
+```
+Output:
+```python3
+{'db': 'rfam',
+ 'access': 'RF01739',
+ 'short_name': 'glnA',
+ 'type': 'family',
+ 'go_ref': ['GO:0070406'],
+ 'so_ref': ['SO:0000035'],
+ 'pubmed_ref': ['18787703', '20230605', '21282981'],
+ 'pdb_ref': ['5DDR', '5DDQ', '5DDP']}
+```
+and now for rest of data:
+```python3
+alignment=Riboswitch.get_sequences()
+tree=Riboswitch.get_tree()
+architectures=Riboswitch.get_architectures()
+```
+**Clans classes**
+
+PARS also provides classes for working with Pfam/Rfam clans. Let's use it with a Globin-like clan.
+```python3
+Globinclan = PfamClan('CL0090')
+Globinclan.__dict__
+```
+Otput:
+```python3
+{'db': 'pfam',
+ 'access': 'CL0090',
+ 'short_name': 'Globin',
+ 'type': 'clan',
+ 'scop_id': '46458',
+ 'description': 'Globin-like',
+ 'pdb_ref': ['3BRP',
+  '4GZG',
+  '1A9W',
+  '1MLM',
+  '3HYU',...],
+ 'members': ['PF01152',
+  'PF08678',
+  'PF11563',
+  'PF14361',
+  'PF09385',
+  'PF00042',
+  'PF00502']}
+```
+We can also download architectures, like for PfamFamily by:
+```python3
+architectures = Globinclan.get_architectures()
+```
+And last but not least RfamClan class. Let's use it with Csr_Rsm_clan
+```python3
+Csrclan=RfamClan('CL00106')
+Csrclan.__dict__
+```
+Output:
+```python3
+{'db': 'rfam',
+ 'access': 'CL00106',
+ 'short_name': 'Csr_Rsm_clan',
+ 'type': 'clan',
+ 'pdb_ref': ['2MF1', '2MF0'],
+ 'members': ['RF00195',
+  'RF00115',
+  'RF00084',
+  'RF00166',
+  'RF02809',
+  'RF02767',
+  'RF00018',
+  'RF02144',
+  'RF01731']}
+```
 ## HMM 
-### Downloading and modifying HMM files
+**Downloading and modifying HMM files**
 For downloading hmm profiles you can use the same csv file as for clans/families downloading. For downloading hmm profiles you can use also a file with only the first column with family names. The header is obligatory. 
 ```python3
 import hmm_download
@@ -14,7 +229,7 @@ You can download hmm profiles of a few families directly from a list of Pfam acc
 family = ["PF00042", "PF00002"] #globin and 7tm_2 pfam accession numbers
 hmm_download.download_hmm(family, "hmm_folder")
 ```
-The hmm profile flat file downloaded from Pfam could be wrapped into an object. The method get_length() returns the number of positions in the profile. Also, the initial probabilities are counted. 
+The hmm profile flat file downloaded from Pfam could be wrapped into an object. The method get_length() returns the number of positions in the profile (the initial probabilities are counted). 
 ```python3
 import hammer_to_object
 hmmObj = hammer_to_object.file_to_object("hmm_folder/PF00042.hmm")
@@ -69,7 +284,7 @@ The modified (or not) object could be written into a file for further analysis.
 ```python3 
 hmmObj.file_format("hmm_folder/test.hmm")
 ```
-### Search by hmmsearch and hmmerscan and automatisation
+**Search by hmmsearch and hmmerscan and automatisation**
 For basic analysis, by hmmsearch you can use the following command. To use more parameters see the documentation.  
 ```python3
 import hmmer_command
@@ -96,59 +311,3 @@ hmm_autosearch.automatic_search("hmm_folder", "fasta_folder", "outscan", "scan")
 ```
 
 
-## Download pfam info
-
-You can choose one of two option when downloading the information about pfam family: create the class family, which download all data automatically or by the function, which will download only requested information.
-
-### Pfam sequences
-
-Pfam sequences will automatically download all sequences format specified by the user:
-* fasta, stockholm, msf format in SeqIO object
-* selex format in str object
-* full or seed format of sequences
-All of these sequences can be downloaded or downloaded and saved as file.
-
-To download all full sequences in globin family in fasta format type:
-```python3
-globin_seqs = family_seq(‘PF00042’, form='fasta', type='full')
-```
-The result is fully compatible with the [SeqIO package](https://biopython.org/wiki/SeqIO)
-
-
-### Pfam tree
-
-Similar to the pfam sequences the tree of the family can be downloaded in the Phylo format from Biopython package. Users can specify if they wish to download the newick format into the file.
-To download the tree of the globin family:
-```python3
-globin_tree = family_tree(‘PF00042’)
-```
-
-The result is fully compatible with the [Phylo package](https://biopython.org/wiki/Phylo)
-
-### Alternative terms
-
-Sometimes we don’t have the accession name of the family. With get_alternative function, we can obtain the accession name with the only id, or get id with the only accession.
-To get the accession for globin:
-```python3
-globin_acc = get_alternative(‘Globin’) 
-print(globin_acc)
-```
-
-Output is:
-```python3
- ’PF00042’
-```
-
-### GO terms
-
-pfam_sequences can also obtain all GO terms which users can find on pfam family website. They are represented as a set of string GO terms.
-To get GO terms fot he family:
-```python3
-globin_go = go_terms(’PF00042’)
-print(globin_go)
-```
-
-The output will be:
-```python3
-('GO:0051920', 'GO:0055114')
-```
